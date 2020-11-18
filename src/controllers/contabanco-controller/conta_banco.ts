@@ -60,7 +60,13 @@ class ContaBanco {
     }
   }
 
-  public fecharConta(): void {}
+  public fecharConta(): void {
+    if (this.saldo > 0) {
+      console.log('Conta com dinheiro !')
+    } else if (this.saldo < 0) {
+      console.log('Conta em débito')
+    } else this.setStatus = false
+  }
 
   public depositar(): void {}
 
