@@ -43,16 +43,31 @@ class ContaBanco {
   get getSaldo() {
     return this.saldo
   }
-  set setStatus(sd: boolean) {
-    this.status = sd
+  set setStatus(st: boolean) {
+    this.status = st
   }
   get getStatus() {
     return this.status
   }
 
-  public abrirConta(): void {}
+  public abrirConta(t: string): void {
+    this.setTipo = t
+    this.setStatus = true
+    if (t === 'CC') {
+      this.saldo = 50
+    } else if (t === 'CP') {
+      this.saldo = 150
+    }
+  }
+
   public fecharConta(): void {}
+
   public depositar(): void {}
+
   public sacar(): void {}
+
   public pagarMensal(): void {}
 }
+
+// const teste = new ContaBanco(111, 'CC', 'rei', 40, false)
+// teste.abrirConta
