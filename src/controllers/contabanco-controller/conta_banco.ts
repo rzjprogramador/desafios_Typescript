@@ -1,4 +1,4 @@
-class ContaBanco {
+export default class ContaBanco {
   public numConta?: number
   protected tipo?: string
   private dono?: string
@@ -17,7 +17,7 @@ class ContaBanco {
     return this.numConta
   }
 
-  setTipo(t: string) {
+  set setTipo(t: string) {
     this.tipo = t
   }
   get getTipo() {
@@ -45,7 +45,7 @@ class ContaBanco {
   }
 
   public abrirConta(t: string): void {
-    this.tipo = t
+    this.setTipo = t
     this.setStatus = true
     if (t === 'CC') {
       this.setSaldo = 50
