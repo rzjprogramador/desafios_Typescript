@@ -80,7 +80,18 @@ class ContaBanco {
     }
   }
 
-  public sacar(): void {}
+  public sacar(v: number): void {
+    if (this.getStatus) {
+      if (this.getSaldo >= v) {
+        this.setSaldo = this.getSaldo - v
+        console.log(`Saque realizado na conta de ${this.getDono}`)
+      } else {
+        console.log('Saldo insuficiente para saque')
+      }
+    } else {
+      console.log('Impossivel sacar de uma conta fechada!')
+    }
+  }
 
   public pagarMensal(): void {}
 }
