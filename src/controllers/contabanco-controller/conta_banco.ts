@@ -44,6 +44,15 @@ export default class ContaBanco {
     return this.status
   }
 
+  public estadoAtual(): void {
+    console.log(`-------------------------`)
+    console.log(`Conta: ${this.getNumConta}`)
+    console.log(`Tipo: ${this.getTipo}`)
+    console.log(`Dono: ${this.getDono}`)
+    console.log(`Saldo:${this.getSaldo}`)
+    console.log(`Status: ${this.getStatus}`)
+  }
+
   public abrirConta(t: string): void {
     this.setTipo = t
     this.setStatus = true
