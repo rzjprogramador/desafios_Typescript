@@ -5,13 +5,7 @@ class ContaBanco {
   private saldo: number
   private status: boolean
 
-  constructor(
-    numConta: number,
-    tipo: string,
-    dono: string,
-    saldo: number,
-    status: boolean,
-  ) {
+  constructor({ numConta, tipo, dono, saldo, status }: ContaBanco) {
     this.saldo = 0
     this.status = false
   }
@@ -23,7 +17,7 @@ class ContaBanco {
     return this.numConta
   }
 
-  set setTipo(t: string) {
+  setTipo(t: string) {
     this.tipo = t
   }
   get getTipo() {
@@ -51,7 +45,7 @@ class ContaBanco {
   }
 
   public abrirConta(t: string): void {
-    this.setTipo = t
+    this.tipo = t
     this.setStatus = true
     if (t === 'CC') {
       this.setSaldo = 50
