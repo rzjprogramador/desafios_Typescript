@@ -93,8 +93,12 @@ class ContaBanco {
     }
   }
 
-  public pagarMensal(): void {}
+  public pagarMensal(): void {
+    let v: number
+    if (this.getTipo === 'CC') {
+      v = 12
+    } else if (this.getTipo === 'CP') {
+      v = 20
+    }
+  }
 }
-
-// const teste = new ContaBanco(111, 'CC', 'rei', 40, false)
-// teste.abrirConta
