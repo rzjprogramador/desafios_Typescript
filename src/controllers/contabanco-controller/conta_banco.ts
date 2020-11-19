@@ -12,8 +12,8 @@ class ContaBanco {
     saldo: number,
     status: boolean,
   ) {
-    this.saldo = saldo
-    this.status = status
+    this.saldo = 0
+    this.status = false
   }
 
   set setNumConta(n: number) {
@@ -43,8 +43,8 @@ class ContaBanco {
   get getSaldo() {
     return this.saldo
   }
-  set setStatus(st: boolean) {
-    this.status = st
+  set setStatus(status: boolean) {
+    this.status = status
   }
   get getStatus() {
     return this.status
@@ -54,21 +54,31 @@ class ContaBanco {
     this.setTipo = t
     this.setStatus = true
     if (t === 'CC') {
-      this.saldo = 50
+      this.setSaldo = 50
     } else if (t === 'CP') {
-      this.saldo = 150
+      this.setSaldo = 150
     }
+    console.log('Conta aberta com sucesso !')
   }
 
   public fecharConta(): void {
-    if (this.saldo > 0) {
-      console.log('Conta com dinheiro !')
-    } else if (this.saldo < 0) {
-      console.log('Conta em débito')
+    if (this.getSaldo > 0) {
+      console.log('Conta não pode ser fechada porque está com dinheiro !')
+    } else if (this.getSaldo < 0) {
+      console.log('Conta em débito não pode ser fechada')
     } else this.setStatus = false
+    console.log('Conta fechada com sucesso.')
   }
 
-  public depositar(): void {}
+  public depositar(v: number): void {
+    if (this.getStatus) {
+      this.setSaldo = this.setSaldo + v
+      // this.setSaldo(this.getSaldo + v)
+      console.log(`Deposito realizado com sucesso na conta de ${this.getDono}`)
+    } else {
+      console.log('Impossivel depositar em uma conta fechada')
+    }
+  }
 
   public sacar(): void {}
 
